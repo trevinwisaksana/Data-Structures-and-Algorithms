@@ -1,4 +1,4 @@
-import Foundation
+import UIKit
 
 // Method to retrieve the corpus and return the text as a String format
 public func retrieveCorpus(name: String, type: String) -> String {
@@ -16,4 +16,16 @@ public func retrieveCorpus(name: String, type: String) -> String {
     
     // If it fails to read, show fatal error message
     fatalError("File cannot be read")
+}
+
+// Method to measure time
+func measure(title: String, block: () -> ()) {
+    // Time at Zero/Timer will start
+    let timeAtZero = CACurrentMediaTime()
+    ////
+    block() // Method that needs to be performed
+    ////
+    let timeDifference = CACurrentMediaTime() - timeAtZero
+    // Printing the results
+    print("\(title) -> \(timeDifference)")
 }
